@@ -11,31 +11,61 @@
 
   <h1>Rock, Paper, Scissors</h1>
   <script>
+    let computerScore = 0;
+    let humanScore = 0;
+
     console.log("Hello World");
-    var computerChoice = getComputerChoice()
-    var humanChoice = getHumanChoice()
 
-    console.log(computerChoice);
-    console.log(humanChoice);
+    for (let i = 1; i <= 5; i++) {
+      const computerChoice = getComputerChoice().toLowerCase();
+      const humanChoice = getHumanChoice().toLowerCase();
+      console.log("Round: ", i)
+      playRound(humanChoice, computerChoice);
+      console.log("H: ", humanScore, "C: ", computerScore);
+    }
 
-
-
-
+    if (humanScore > computerScore) {
+      console.log("You Win!");
+    } else if (humanScore < computerScore) {
+      console.log("Loooooooossseeeeeerrrrr!  - You SUCK!");
+    } else {
+      console.log("We Draw! - That's awkward");
+    }
 
     function getComputerChoice() {
-      // return ("Rock");
       var choice = (Math.floor(Math.random() * 3));
       if (choice === 0) {
-        return ("Rock");
+        return ("rock");
       } else if (choice === 1) {
-        return ("Paper");
+        return ("paper");
       } else {
-        return ("Scissors");
+        return ("scissors");
       }
     }
 
     function getHumanChoice() {
       return (prompt("Choose: Rock, Paper or Scissors"));
+    }
+
+    function playRound(humanChoice, computerChoice) {
+      console.log(humanChoice);
+      console.log(computerChoice);
+      if (humanChoice === computerChoice) {
+        console.log("DRAW");
+      } else if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log("WIN");
+        humanScore++;
+      } else if (humanChoice === "paper" && computerChoice === "rock") {
+        console.log("WIN");
+        humanScore++;
+      } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        console.log("WIN");
+        humanScore++;
+      }
+      else {
+        console.log("LOSE");
+        computerScore++;
+      }
     }
 
   </script>
