@@ -82,28 +82,34 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
 
   if (humanChoice === computerChoice) {
     console.log("DRAW");
+    winner.style.color = "black";
     winner.textContent = "DRAW";
     container.appendChild(winner);
     //return ("Draw");
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
     console.log("WIN");
+    winner.style.color = "green";
     winner.textContent = "WIN";
     // humanScore++;
     container.appendChild(winner);
     //return ("Human");
   } else if (humanChoice === "paper" && computerChoice === "rock") {
+    winner.style.color = "green";
     winner.textContent = "WIN";
     console.log("WIN");
     // humanScore++;
     container.appendChild(winner);
     //return ("Human");
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    winner.style.color = "green";
     winner.textContent = "WIN";
     console.log("WIN");
     // humanScore++;
     //return ("Human");
+    container.appendChild(winner);
   }
   else {
+    winner.style.color = "red";
     winner.textContent = "LOSE";
     console.log("LOSE");
     // computerScore++;
